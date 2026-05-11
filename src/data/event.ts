@@ -10,6 +10,7 @@ export const eventInfo = {
   displayDate: '18 July 2026',
   displayTime: '4:00 pm – 9:00 pm',
   ticketUrl: 'https://luma.com/tedxwatford',
+  lumaEventId: 'evt-ql9KVisM6WytOve',
   contactEmail: 'team@tedxwatford.com',
   siteUrl: 'https://tedxwatford.com',
   tedxProgramUrl: 'https://www.ted.com/about/programs-initiatives/tedx-program',
