@@ -74,6 +74,8 @@ import { eventInfo } from '../data/event';
             href={eventInfo.ticketUrl}
             target="_blank"
             rel="noopener"
+            data-luma-action="checkout"
+            data-luma-event-id={eventInfo.lumaEventId}
             class="inline-flex items-center rounded-full bg-[var(--color-ted-red)] px-6 py-3 text-base font-semibold text-white transition hover:bg-red-700"
           >
             Reserve a spot on Luma →
