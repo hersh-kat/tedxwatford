@@ -1,0 +1,71 @@
+---
+import { Image } from 'astro:assets';
+import logoBlack from '../images/logo-black.png';
+import { eventInfo } from '../data/event';
+---
+
+<section
+  class="relative isolate overflow-hidden bg-white"
+  aria-labelledby="hero-heading"
+>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(235,0,40,0.08),_transparent_60%)]"
+  >
+  </div>
+
+  <div class="mx-auto flex max-w-6xl flex-col items-start gap-8 px-4 py-20 md:px-8 md:py-28">
+    <Image
+      src={logoBlack}
+      alt={`${eventInfo.name} logo`}
+      widths={[240, 480]}
+      sizes="(min-width: 768px) 280px, 200px"
+      class="h-12 w-auto md:h-16"
+      loading="eager"
+    />
+
+    <h1
+      id="hero-heading"
+      class="max-w-4xl text-5xl font-extrabold leading-[1.05] tracking-tight md:text-7xl lg:text-8xl"
+    >
+      All You Need is <span class="text-[var(--color-ted-red)]">Love.</span>
+    </h1>
+
+    <p class="max-w-2xl text-lg text-neutral-700 md:text-xl">
+      An evening of ideas worth spreading at <strong>Bhaktivedanta Manor</strong>, the historic
+      estate gifted by George Harrison. Join us for the first ever {eventInfo.name}.
+    </p>
+
+    <dl class="grid grid-cols-1 gap-6 text-sm sm:grid-cols-3 md:text-base">
+      <div>
+        <dt class="font-semibold uppercase tracking-wider text-neutral-500">Date</dt>
+        <dd class="mt-1 text-lg">{eventInfo.displayDate}</dd>
+      </div>
+      <div>
+        <dt class="font-semibold uppercase tracking-wider text-neutral-500">Time</dt>
+        <dd class="mt-1 text-lg">{eventInfo.displayTime}</dd>
+      </div>
+      <div>
+        <dt class="font-semibold uppercase tracking-wider text-neutral-500">Venue</dt>
+        <dd class="mt-1 text-lg">{eventInfo.venue.name}, Watford</dd>
+      </div>
+    </dl>
+
+    <div class="flex flex-wrap items-center gap-4">
+      <a
+        href={eventInfo.ticketUrl}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center rounded-full bg-[var(--color-ted-red)] px-6 py-3 text-base font-semibold text-white transition hover:bg-red-700"
+      >
+        Reserve a spot on Luma →
+      </a>
+      <a
+        href="#about"
+        class="inline-flex items-center rounded-full border border-neutral-300 px-6 py-3 text-base font-semibold transition hover:border-neutral-900"
+      >
+        Learn more
+      </a>
+    </div>
+  </div>
+</section>

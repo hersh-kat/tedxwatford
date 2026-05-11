@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import AboutEvent from '../components/AboutEvent.astro';
+import Speakers from '../components/Speakers.astro';
+import Schedule from '../components/Schedule.astro';
+import Venue from '../components/Venue.astro';
+import FAQ from '../components/FAQ.astro';
+import Contact from '../components/Contact.astro';
+import { eventInfo } from '../data/event';
+
+const title = `${eventInfo.name} — ${eventInfo.tagline} · ${eventInfo.displayDate}`;
+const description = `${eventInfo.name} ${eventInfo.displayDate}: an evening of TED-style talks at Bhaktivedanta Manor on the theme "All You Need is Love." ${eventInfo.description}`;
+---
+
+<BaseLayout title={title} description={description} pathname="/">
+  <Hero />
+  <AboutEvent />
+  <Speakers />
+  <Schedule />
+  <Venue />
+  <FAQ />
+  <Contact />
+</BaseLayout>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tedxwatford.com/sitemap-index.xml
