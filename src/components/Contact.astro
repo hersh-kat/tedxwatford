@@ -1,0 +1,23 @@
+---
+import { eventInfo } from '../data/event';
+---
+
+<section id="contact" class="py-20 md:py-28" aria-labelledby="contact-heading">
+  <div class="mx-auto max-w-4xl px-4 text-center md:px-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-ted-red)]">
+      Get in touch
+    </p>
+    <h2 id="contact-heading" class="mt-3 text-4xl font-bold tracking-tight md:text-5xl">
+      Questions, partnerships, or press?
+    </h2>
+    <p class="mx-auto mt-6 max-w-2xl text-lg text-neutral-700">
+      Drop us a line at the email below — we read everything.
+    </p>
+    <a
+      href={`mailto:${eventInfo.contactEmail}`}
+      class="mt-8 inline-flex items-center rounded-full bg-[var(--color-ted-ink)] px-6 py-3 text-base font-semibold text-white transition hover:bg-neutral-800"
+    >
+      {eventInfo.contactEmail}
+    </a>
+  </div>
+</section>

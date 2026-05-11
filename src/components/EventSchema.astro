@@ -1,0 +1,47 @@
+---
+import { eventInfo } from '../data/event';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: eventInfo.name,
+  description: eventInfo.description,
+  startDate: eventInfo.startDate,
+  endDate: eventInfo.endDate,
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  eventStatus: 'https://schema.org/EventScheduled',
+  location: {
+    '@type': 'Place',
+    name: eventInfo.venue.name,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: eventInfo.venue.streetAddress,
+      addressLocality: eventInfo.venue.addressLocality,
+      postalCode: eventInfo.venue.postalCode,
+      addressRegion: eventInfo.venue.region,
+      addressCountry: eventInfo.venue.addressCountry,
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: eventInfo.venue.latitude,
+      longitude: eventInfo.venue.longitude,
+    },
+  },
+  organizer: {
+    '@type': 'Organization',
+    name: eventInfo.name,
+    url: eventInfo.siteUrl,
+    email: eventInfo.contactEmail,
+  },
+  offers: {
+    '@type': 'Offer',
+    url: eventInfo.ticketUrl,
+    availability: 'https://schema.org/InStock',
+    validFrom: '2026-05-01T00:00:00+01:00',
+  },
+  image: [`${eventInfo.siteUrl}/og.png`],
+  url: eventInfo.siteUrl,
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

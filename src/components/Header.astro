@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+import logoBlack from '../images/logo-black.png';
+import { eventInfo } from '../data/event';
+---
+
+<header class="sticky top-0 z-50 border-b border-neutral-200 bg-white/90 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:px-8">
+    <a href="/" class="flex items-center gap-2" aria-label={`${eventInfo.name} home`}>
+      <Image
+        src={logoBlack}
+        alt={`${eventInfo.name} logo`}
+        widths={[120, 240]}
+        sizes="120px"
+        class="h-8 w-auto"
+        loading="eager"
+      />
+    </a>
+
+    <nav class="hidden items-center gap-6 text-sm font-medium md:flex" aria-label="Primary">
+      <a href="/#about" class="hover:text-[var(--color-ted-red)]">About</a>
+      <a href="/#speakers" class="hover:text-[var(--color-ted-red)]">Speakers</a>
+      <a href="/#schedule" class="hover:text-[var(--color-ted-red)]">Schedule</a>
+      <a href="/#venue" class="hover:text-[var(--color-ted-red)]">Venue</a>
+      <a href="/#faq" class="hover:text-[var(--color-ted-red)]">FAQ</a>
+      <a href="/about" class="hover:text-[var(--color-ted-red)]">About TEDx</a>
+    </nav>
+
+    <a
+      href={eventInfo.ticketUrl}
+      target="_blank"
+      rel="noopener"
+      class="inline-flex items-center rounded-full bg-[var(--color-ted-red)] px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700"
+    >
+      Reserve a spot
+    </a>
+  </div>
+
+  <details class="md:hidden">
+    <summary class="flex cursor-pointer items-center justify-between border-t border-neutral-200 px-4 py-2 text-sm font-medium">
+      Menu
+    </summary>
+    <nav class="flex flex-col gap-1 border-t border-neutral-200 px-4 py-3 text-sm" aria-label="Mobile">
+      <a href="/#about" class="py-1.5">About</a>
+      <a href="/#speakers" class="py-1.5">Speakers</a>
+      <a href="/#schedule" class="py-1.5">Schedule</a>
+      <a href="/#venue" class="py-1.5">Venue</a>
+      <a href="/#faq" class="py-1.5">FAQ</a>
+      <a href="/about" class="py-1.5">About TEDx</a>
+    </nav>
+  </details>
+</header>
