@@ -1,4 +1,15 @@
 ---
+import { Image } from 'astro:assets';
+import { speakers } from '../data/speakers';
+
+// Static class strings so Tailwind picks them up at build time.
+const focusClass = {
+  top: 'object-top',
+  center: 'object-center',
+  bottom: 'object-bottom',
+  left: 'object-left',
+  right: 'object-right',
+};
 ---
 
 <section id="speakers" class="py-20 md:py-28" aria-labelledby="speakers-heading">
@@ -10,12 +21,53 @@
       A line-up that lives the theme.
     </h2>
 
-    <div class="mt-10 rounded-2xl border-2 border-dashed border-neutral-300 bg-neutral-50 p-12 text-center">
-      <p class="text-2xl font-semibold">Speakers will be announced soon.</p>
-      <p class="mx-auto mt-3 max-w-xl text-neutral-600">
-        We're curating a multidisciplinary line-up of thought leaders, storytellers and
-        change-makers. Reserve a spot on Luma to be the first to know.
-      </p>
-    </div>
+    {
+      speakers.length > 0 ? (
+        <ul class="mt-12 flex flex-wrap items-start justify-center gap-x-10 gap-y-12">
+          {speakers.map((speaker) => (
+            <li class="basis-[calc(50%-1.25rem)] text-center lg:basis-[calc(25%-1.875rem)]">
+              {speaker.image ? (
+                <Image
+                  src={speaker.image}
+                  alt={`Portrait of ${speaker.name}`}
+                  widths={[200, 300, 400]}
+                  sizes="(min-width: 1024px) 260px, (min-width: 640px) 30vw, 45vw"
+                  class={`aspect-square w-full rounded-2xl object-cover ${focusClass[speaker.focus ?? 'center']}`}
+                  loading="lazy"
+                />
+              ) : (
+                <div
+                  class="flex aspect-square w-full items-center justify-center rounded-2xl bg-neutral-100"
+                  aria-hidden="true"
+                >
+                  <svg class="h-1/3 w-1/3 text-neutral-300" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3.465 14.493a1.23 1.23 0 0 0 .41 1.412A9.957 9.957 0 0 0 10 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 0 0-13.074.003Z" />
+                  </svg>
+                </div>
+              )}
+              <h3 class="mt-4 text-lg font-bold leading-tight tracking-tight">{speaker.name}</h3>
+              {speaker.role && (
+                <p class="mt-1 text-xs font-semibold uppercase tracking-wider text-[var(--color-ted-red)]">
+                  {speaker.role}
+                </p>
+              )}
+              {speaker.topic && (
+                <p class="mt-2 text-sm font-medium leading-snug text-neutral-700">
+                  &ldquo;{speaker.topic}&rdquo;
+                </p>
+              )}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div class="mt-10 rounded-2xl border-2 border-dashed border-neutral-300 bg-neutral-50 p-12 text-center">
+          <p class="text-2xl font-semibold">Speakers will be announced soon.</p>
+          <p class="mx-auto mt-3 max-w-xl text-neutral-600">
+            We're curating a multidisciplinary line-up of thought leaders, storytellers and
+            change-makers. Reserve a spot on Luma to be the first to know.
+          </p>
+        </div>
+      )
+    }
   </div>
 </section>
