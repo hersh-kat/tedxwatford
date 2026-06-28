@@ -29,7 +29,7 @@ export const speakers: Speaker[] = [
   {
     name: 'Harpreet Kaur',
     role: 'BBC Apprentice winner',
-    topic: 'How to find your better half',
+    topic: 'Who taught you about love?',
     image: harpreetKaur,
     focus: 'top',
   },
