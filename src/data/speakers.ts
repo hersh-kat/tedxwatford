@@ -11,6 +11,7 @@ import harpreetKaur from '../images/speakers/harpreet-kaur.jpg';
 import radhikaDas from '../images/speakers/radhika-das.jpg';
 import tomMeyer from '../images/speakers/tom-meyer.jpg';
 import lawrenceRosenberg from '../images/speakers/lawrence-rosenberg.jpg';
+import giancarloGanglione from '../images/speakers/giancarlo-ganglione.jpg';
 
 export interface Speaker {
   /** Full name, as it should appear on the card. */
@@ -52,6 +53,12 @@ export const speakers: Speaker[] = [
     role: 'Media commentator',
     topic: 'What makes the world go around',
     image: lawrenceRosenberg,
+  },
+  {
+    name: 'Giancarlo Gaglione',
+    role: 'Founder, Mental Health World Cup',
+    topic: 'How I won the World Cup',
+    image: giancarloGanglione,
   },
 
   // Confirmed but awaiting a photo — uncomment (and add an `image`) when ready:
