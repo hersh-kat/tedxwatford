@@ -12,6 +12,9 @@ import radhikaDas from '../images/speakers/radhika-das.jpg';
 import tomMeyer from '../images/speakers/tom-meyer.jpg';
 import lawrenceRosenberg from '../images/speakers/lawrence-rosenberg.jpg';
 import giancarloGanglione from '../images/speakers/giancarlo-ganglione.jpg';
+import kapilChawla from '../images/speakers/kapil-chawla.jpg';
+import premierLeagueKicks from '../images/speakers/premier-league-kicks.jpg';
+import vrindaKishori from '../images/speakers/vrinda-kishori.jpg';
 
 export interface Speaker {
   /** Full name, as it should appear on the card. */
@@ -60,10 +63,25 @@ export const speakers: Speaker[] = [
     topic: 'How I won the World Cup',
     image: giancarloGanglione,
   },
-
-  // Confirmed but awaiting a photo — uncomment (and add an `image`) when ready:
-  // {
-  //   name: 'Helen Ward, Elliot Bird and a young person (Watford FC Trust)',
-  //   topic: 'The best goal I ever scored was without the football',
-  // },
+  {
+    name: 'Dr Kapil Chawla',
+    role: 'Family physician',
+    topic: 'The Disease of Disconnection',
+    image: kapilChawla,
+    focus: 'right',
+  },
+  {
+    name: 'Elliot Bird, Jeffrey and Hannah',
+    role: 'Members of Premier League Kicks Charity',
+    topic: 'Kicks that change lives',
+    image: premierLeagueKicks,
+    focus: 'top',
+  },
+  {
+    name: 'Vrinda Kishori, Lali and Jani',
+    role: "Interactive children's storyteller",
+    topic: 'The Story between Us',
+    image: vrindaKishori,
+    focus: 'bottom',
+  },
 ];
