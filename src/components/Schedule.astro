@@ -1,5 +1,6 @@
 ---
 import { eventInfo } from '../data/event';
+import { schedule } from '../data/schedule';
 ---
 
 <section
@@ -15,12 +16,28 @@ import { eventInfo } from '../data/event';
       {eventInfo.displayDate} · {eventInfo.displayTime}
     </h2>
 
-    <div class="mt-10 rounded-2xl border-2 border-dashed border-neutral-700 p-12 text-center">
-      <p class="text-2xl font-semibold text-white">Schedule to be announced.</p>
-      <p class="mx-auto mt-3 max-w-xl text-neutral-400">
-        The full running order — including talks, breaks, and performances — will be published as
-        we get closer to the event.
-      </p>
-    </div>
+    <ol class="mt-12 max-w-3xl">
+      {
+        schedule.map((item) => (
+          <li class="flex items-baseline gap-4 border-t border-neutral-800 py-4 md:gap-8">
+            <span class="w-20 shrink-0 font-semibold tabular-nums text-[var(--color-ted-red)]">
+              {item.time}
+            </span>
+            {item.type === 'talk' ? (
+              <span class="text-lg font-semibold text-white md:text-xl">{item.title}</span>
+            ) : item.type === 'performance' ? (
+              <span class="text-lg font-semibold text-white md:text-xl">
+                {item.title}
+                <span class="ml-2 align-middle text-sm font-medium uppercase tracking-wider text-[var(--color-ted-red)]">
+                  Live music
+                </span>
+              </span>
+            ) : (
+              <span class="text-lg text-neutral-200 md:text-xl">{item.title}</span>
+            )}
+          </li>
+        ))
+      }
+    </ol>
   </div>
 </section>
